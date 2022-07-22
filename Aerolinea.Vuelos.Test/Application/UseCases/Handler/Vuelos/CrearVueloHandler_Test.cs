@@ -10,10 +10,8 @@ using Aerolinea.Vuelos.Domain.Interfaces;
 using Moq;
 using Xunit;
 
-namespace Aerolinea.Vuelos.Test.Application.UseCases.Handler.Vuelos
-{
-    public class CrearVueloHandler_Test
-    {
+namespace Aerolinea.Vuelos.Test.Application.UseCases.Handler.Vuelos {
+    public class CrearVueloHandler_Test {
         private readonly Mock<IVueloRepository> _vueloRepository;
         private readonly Mock<IVueloServices> _vueloServices;
         private readonly Mock<IVuelosFactory> _vuelosFactory;
@@ -38,8 +36,7 @@ namespace Aerolinea.Vuelos.Test.Application.UseCases.Handler.Vuelos
 
 
         private Vuelo _vueloTest;
-        public CrearVueloHandler_Test()
-        {
+        public CrearVueloHandler_Test() {
             _vueloRepository = new Mock<IVueloRepository>();
             _vueloServices = new Mock<IVueloServices>();
 
@@ -51,8 +48,7 @@ namespace Aerolinea.Vuelos.Test.Application.UseCases.Handler.Vuelos
         }
 
         [Fact]
-        public async void CrearVueloHandler_HandleSuccess()
-        {
+        public async void CrearVueloHandler_HandleSuccess() {
 
 
             //  _vuelosFactory.Setup(_vuelosFactory => _vuelosFactory.Create(horaSalida, horaLLegada, estado, precio, fecha, codDestino, codOrigen, codAeronave, activo, StockAsientos)).Returns(_vueloTest);

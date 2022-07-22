@@ -1,7 +1,5 @@
-﻿namespace Aerolinea.Vuelos.Application.Dto
-{
-    public class ResulService
-    {
+﻿namespace Aerolinea.Vuelos.Application.Dto {
+    public class ResulService {
         public bool success { get; set; } = true;
         public dynamic data { get; set; }
         public string messaje { get; set; }

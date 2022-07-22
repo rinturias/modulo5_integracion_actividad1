@@ -1,10 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Aerolinea.Vuelos.Application.Services
-{
+namespace Aerolinea.Vuelos.Application.Services {
     [ExcludeFromCodeCoverage]
-    public class VueloServices : IVueloServices
-    {
+    public class VueloServices : IVueloServices {
 
     }
 }

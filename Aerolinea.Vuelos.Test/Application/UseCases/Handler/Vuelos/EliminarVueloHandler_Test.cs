@@ -8,10 +8,8 @@ using Aerolinea.Vuelos.Domain.Interfaces;
 using Moq;
 using Xunit;
 
-namespace Aerolinea.Vuelos.Test.Application.UseCases.Handler.Vuelos
-{
-    public class EliminarVueloHandler_Test
-    {
+namespace Aerolinea.Vuelos.Test.Application.UseCases.Handler.Vuelos {
+    public class EliminarVueloHandler_Test {
         private readonly Mock<IVueloRepository> _vueloRepository;
         private readonly Mock<IUnitOfWork> _unitOfWork;
 
@@ -28,21 +26,18 @@ namespace Aerolinea.Vuelos.Test.Application.UseCases.Handler.Vuelos
         private Guid codAeronave = Guid.NewGuid();
         private int activo = 0;
 
-        private VueloDeleteDto objVuelosDeleteDto = new()
-        {
+        private VueloDeleteDto objVuelosDeleteDto = new() {
             codVuelo = Guid.Parse("D6065F05-533F-4C4A-81B4-09561258CD43")
         };
         private Vuelo _vueloTest;
-        public EliminarVueloHandler_Test()
-        {
+        public EliminarVueloHandler_Test() {
             _vueloRepository = new Mock<IVueloRepository>();
             _unitOfWork = new Mock<IUnitOfWork>();
             _vueloTest = new Vuelo(horaSalida, horaLLegada, estado, precio, fecha, codDestino, codOrigen, codAeronave, activo, StockAsientos);
         }
 
         [Fact]
-        public void ElimarVueloHandler_HandleSuccess()
-        {
+        public void ElimarVueloHandler_HandleSuccess() {
 
 
             int CodMarcaBaja = 9;

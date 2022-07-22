@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Aerolinea.Vuelos.Infrastructure.EF.ReadModel
-{
-    public class VueloReadModel
-    {
+namespace Aerolinea.Vuelos.Infrastructure.EF.ReadModel {
+    public class VueloReadModel {
         public Guid Id { get; set; }
         // public long codVuelo { get; private set; }
         public DateTime horaSalida { get; set; }

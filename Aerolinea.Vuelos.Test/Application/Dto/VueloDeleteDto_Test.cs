@@ -2,13 +2,10 @@
 using Aerolinea.Vuelos.Application.Dto;
 using Xunit;
 
-namespace Aerolinea.Vuelos.Test.Application.Dto
-{
-    public class VueloDeleteDto_Test
-    {
+namespace Aerolinea.Vuelos.Test.Application.Dto {
+    public class VueloDeleteDto_Test {
         [Fact]
-        public void VueloDeleteDto_CheckPropertiesValid()
-        {
+        public void VueloDeleteDto_CheckPropertiesValid() {
             var codVueloTest = Guid.NewGuid();
             var objVuelo = new VueloDeleteDto();
 

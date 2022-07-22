@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using Aerolinea.Vuelos.Application.Dto;
 
-namespace Aerolinea.Vuelos.Test.Application
-{
-    public class MockFactory
-    {
+namespace Aerolinea.Vuelos.Test.Application {
+    public class MockFactory {
 
-        public static RequestVueloDto GetVuelo()
-        {
-            return new RequestVueloDto()
-            {
+        public static RequestVueloDto GetVuelo() {
+            return new RequestVueloDto() {
                 horaSalida = DateTime.Now,
                 horaLLegada = DateTime.Now,
                 estado = "A",
@@ -36,10 +32,8 @@ namespace Aerolinea.Vuelos.Test.Application
             };
         }
 
-        public static SearchVuelosDTO GetSearchVuelo()
-        {
-            return new SearchVuelosDTO()
-            {
+        public static SearchVuelosDTO GetSearchVuelo() {
+            return new SearchVuelosDTO() {
                 FecInicial = DateTime.Now,
                 FecFinal = DateTime.Now,
                 CodVuelo = Guid.NewGuid(),

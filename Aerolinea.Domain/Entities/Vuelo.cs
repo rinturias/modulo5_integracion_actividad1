@@ -6,10 +6,8 @@ using Aerolinea.Vuelos.Domain.Event;
 using Aerolinea.Vuelos.Domain.ValueObjects;
 using Sharedkernel.Core;
 
-namespace Aerolinea.Vuelos.Domain.Entities
-{
-    public class Vuelo : AggregateRoot<Guid>
-    {
+namespace Aerolinea.Vuelos.Domain.Entities {
+    public class Vuelo : AggregateRoot<Guid> {
 
         public DateTime horaSalida { get; private set; }
         public DateTime horaLLegada { get; private set; }
@@ -26,33 +24,27 @@ namespace Aerolinea.Vuelos.Domain.Entities
 
         private readonly ICollection<TripulacionVuelo> tripulacionVuelos;
 
-        public IReadOnlyCollection<TripulacionVuelo> DetalleTripilacionVuelos
-        {
-            get
-            {
+        public IReadOnlyCollection<TripulacionVuelo> DetalleTripilacionVuelos {
+            get {
                 return new ReadOnlyCollection<TripulacionVuelo>(tripulacionVuelos.ToList());
             }
         }
 
         private readonly ICollection<PlanillaAsientoVuelo> planillaAsientoVuelos;
 
-        public IReadOnlyCollection<PlanillaAsientoVuelo> DetalleplanillaAsientoVuelos
-        {
-            get
-            {
+        public IReadOnlyCollection<PlanillaAsientoVuelo> DetalleplanillaAsientoVuelos {
+            get {
                 return new ReadOnlyCollection<PlanillaAsientoVuelo>(planillaAsientoVuelos.ToList());
             }
         }
 
-        public Vuelo()
-        {
+        public Vuelo() {
             Id = Guid.NewGuid();
             this.tripulacionVuelos = new List<TripulacionVuelo>();
             this.planillaAsientoVuelos = new List<PlanillaAsientoVuelo>();
         }
 
-        public Vuelo(DateTime horaSalida, DateTime horaLLegada, string estado, PrecioValue precio, DateTime fecha, Guid codDestino, Guid codOrigen, Guid codAeronave, int activo, CantidadValue StockAsientos)
-        {
+        public Vuelo(DateTime horaSalida, DateTime horaLLegada, string estado, PrecioValue precio, DateTime fecha, Guid codDestino, Guid codOrigen, Guid codAeronave, int activo, CantidadValue StockAsientos) {
             Id = Guid.NewGuid();
             this.tripulacionVuelos = new List<TripulacionVuelo>();
             this.planillaAsientoVuelos = new List<PlanillaAsientoVuelo>();
@@ -73,18 +65,15 @@ namespace Aerolinea.Vuelos.Domain.Entities
         }
 
 
-        public void AgregarItem(Guid codTripulacion, Guid codEmpleado, string estadoTri, int activoTri)
-        {
+        public void AgregarItem(Guid codTripulacion, Guid codEmpleado, string estadoTri, int activoTri) {
 
             //var detalleTripulacion = tripulacionVuelos.FirstOrDefault(x => x.codTripulacion == codTripulacion && x.codVuelo==codVuelo);
             var detalleTripulacion = tripulacionVuelos.FirstOrDefault(x => x.codTripulacion == codTripulacion);
-            if (detalleTripulacion is null)
-            {
+            if (detalleTripulacion is null) {
                 detalleTripulacion = new TripulacionVuelo(codTripulacion, codEmpleado, estadoTri, activoTri, Id);
                 tripulacionVuelos.Add(detalleTripulacion);
             }
-            else
-            {
+            else {
                 detalleTripulacion.ModificarTripulacionVuelo(estadoTri, activoTri);
             }
 
@@ -93,25 +82,21 @@ namespace Aerolinea.Vuelos.Domain.Entities
 
         }
 
-        public void GenerarItemPlanillaAsientosVuelo(int stock)
-        {
+        public void GenerarItemPlanillaAsientosVuelo(int stock) {
             string estadoDefectoAsientoLibre = "L";
-            for (int i = 0; i < stock; i++)
-            {
+            for (int i = 0; i < stock; i++) {
                 PlanillaAsientoVuelo objPlanilla = new("ASI" + i.ToString(), estadoDefectoAsientoLibre, 0);
                 planillaAsientoVuelos.Add(objPlanilla);
             }
             AddDomainEvent(new VueloHabilitado(this));
         }
 
-        public void ConsolidarEventVueloHabilitado()
-        {
+        public void ConsolidarEventVueloHabilitado() {
             var evento = new VueloHabilitado(this);
             AddDomainEvent(evento);
         }
 
-        public void EliminarVuelo(Guid codVuelo, int pActivo)
-        {
+        public void EliminarVuelo(Guid codVuelo, int pActivo) {
             var evento = new VueloEliminado(this);
             activo = pActivo;
 

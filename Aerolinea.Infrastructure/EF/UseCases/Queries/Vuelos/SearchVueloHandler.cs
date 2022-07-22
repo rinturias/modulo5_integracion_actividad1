@@ -9,28 +9,23 @@ using Aerolinea.Vuelos.Infrastructure.EF.ReadModel;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Aerolinea.Vuelos.Infrastructure.EF.UseCases.Queries.Vuelos
-{
+namespace Aerolinea.Vuelos.Infrastructure.EF.UseCases.Queries.Vuelos {
 
     public class SearchVueloHandler :
         IRequestHandler<SearchVuelosQuery, ResulService>,
         IRequestHandler<SearchListVuelosQuery, ResulService>,
-        IRequestHandler<SearchListPlanillaAsientosVuelosQuery, ResulService>
-
-    {
+        IRequestHandler<SearchListPlanillaAsientosVuelosQuery, ResulService> {
         private readonly DbSet<VueloReadModel> _vuelos;
 
 
 
-        public SearchVueloHandler(ReadDbContext context)
-        {
+        public SearchVueloHandler(ReadDbContext context) {
             _vuelos = context.Vuelo;
         }
 
 
 
-        public async Task<ResulService> Handle(SearchVuelosQuery request, CancellationToken cancellationToken)
-        {
+        public async Task<ResulService> Handle(SearchVuelosQuery request, CancellationToken cancellationToken) {
 
             var vueloList = await _vuelos
                       .AsNoTracking()
@@ -42,8 +37,7 @@ namespace Aerolinea.Vuelos.Infrastructure.EF.UseCases.Queries.Vuelos
             List<VuelosDto> listNew = new();
             List<TripulacionDto> listNewTripulacion = new();
 
-            foreach (var item in vueloList)
-            {
+            foreach (var item in vueloList) {
                 VuelosDto objVuelo = new();
                 objVuelo.codVuelo = item.Id;
                 objVuelo.horaSalida = item.horaSalida;
@@ -54,8 +48,7 @@ namespace Aerolinea.Vuelos.Infrastructure.EF.UseCases.Queries.Vuelos
                 objVuelo.precio = item.precio;
                 objVuelo.estado = item.estado;
 
-                foreach (var itemDetalle in item.DetalleTripulacion)
-                {
+                foreach (var itemDetalle in item.DetalleTripulacion) {
                     TripulacionDto list = new();
                     list.codTripulacion = itemDetalle.codTripulacion;
                     list.codEmpleado = itemDetalle.codEmpleado;
@@ -72,8 +65,7 @@ namespace Aerolinea.Vuelos.Infrastructure.EF.UseCases.Queries.Vuelos
             return new ResulService { data = listNew, messaje = "listado de vuelos por fecha" };
         }
 
-        public async Task<ResulService> Handle(SearchListVuelosQuery request, CancellationToken cancellationToken)
-        {
+        public async Task<ResulService> Handle(SearchListVuelosQuery request, CancellationToken cancellationToken) {
             var vueloList = await _vuelos
                      .AsNoTracking()
                      .Include(x => x.DetalleTripulacion)
@@ -85,8 +77,7 @@ namespace Aerolinea.Vuelos.Infrastructure.EF.UseCases.Queries.Vuelos
             List<VuelosDto> listNew = new();
             List<TripulacionDto> listNewTripulacion = new();
 
-            foreach (var item in vueloList)
-            {
+            foreach (var item in vueloList) {
                 VuelosDto objVuelo = new();
                 objVuelo.codVuelo = item.Id;
                 objVuelo.horaSalida = item.horaSalida;
@@ -98,8 +89,7 @@ namespace Aerolinea.Vuelos.Infrastructure.EF.UseCases.Queries.Vuelos
                 objVuelo.estado = item.estado;
                 objVuelo.StockAsientos = item.stockAsientos;
 
-                foreach (var itemDetalle in item.DetalleTripulacion)
-                {
+                foreach (var itemDetalle in item.DetalleTripulacion) {
                     TripulacionDto list = new();
                     list.codVuelo = item.Id;
                     list.codTripulacion = itemDetalle.codTripulacion;
@@ -117,8 +107,7 @@ namespace Aerolinea.Vuelos.Infrastructure.EF.UseCases.Queries.Vuelos
             return new ResulService { data = listNew, messaje = "listado 100  vuelos" };
         }
 
-        public async Task<ResulService> Handle(SearchListPlanillaAsientosVuelosQuery request, CancellationToken cancellationToken)
-        {
+        public async Task<ResulService> Handle(SearchListPlanillaAsientosVuelosQuery request, CancellationToken cancellationToken) {
             var PlanillaAsientosvueloList = await _vuelos
                     .AsNoTracking()
                     .Include(x => x.DetallePlanillaVuelo)
@@ -130,8 +119,7 @@ namespace Aerolinea.Vuelos.Infrastructure.EF.UseCases.Queries.Vuelos
             List<VuelosDto> listNew = new();
             List<PlanillaAsientosVueloDto> listNewPlanilla = new();
 
-            foreach (var item in PlanillaAsientosvueloList)
-            {
+            foreach (var item in PlanillaAsientosvueloList) {
                 VuelosDto objVuelo = new();
                 objVuelo.codVuelo = item.Id;
                 objVuelo.horaSalida = item.horaSalida;
@@ -140,8 +128,7 @@ namespace Aerolinea.Vuelos.Infrastructure.EF.UseCases.Queries.Vuelos
                 objVuelo.precio = item.precio;
                 objVuelo.estado = item.estado;
 
-                foreach (var itemDetalle in item.DetallePlanillaVuelo)
-                {
+                foreach (var itemDetalle in item.DetallePlanillaVuelo) {
                     PlanillaAsientosVueloDto list = new();
                     list.codPlanillaAsiento = itemDetalle.Id;
                     list.asiento = itemDetalle.asiento;

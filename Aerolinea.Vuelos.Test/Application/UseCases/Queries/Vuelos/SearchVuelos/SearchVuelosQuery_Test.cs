@@ -2,14 +2,11 @@
 using Aerolinea.Vuelos.Application.UseCases.Queries.Vuelos.SearchVuelos;
 using Xunit;
 
-namespace Aerolinea.Vuelos.Test.Application.UseCases.Queries.Vuelos.SearchVuelos
-{
-    public class SearchVuelosQuery_Test
-    {
+namespace Aerolinea.Vuelos.Test.Application.UseCases.Queries.Vuelos.SearchVuelos {
+    public class SearchVuelosQuery_Test {
 
         [Fact]
-        public void IsRequest_Valid()
-        {
+        public void IsRequest_Valid() {
             var detalle = MockFactory.GetSearchVuelo();
             var command = new SearchVuelosQuery();
             command.SearchVuelosDTO = detalle;
@@ -18,8 +15,7 @@ namespace Aerolinea.Vuelos.Test.Application.UseCases.Queries.Vuelos.SearchVuelos
         }
 
         [Fact]
-        public void TestConstructor_IsPrivate()
-        {
+        public void TestConstructor_IsPrivate() {
             var command = (SearchVuelosQuery)Activator.CreateInstance(typeof(SearchVuelosQuery), true);
             Assert.Null(command.SearchVuelosDTO);
         }

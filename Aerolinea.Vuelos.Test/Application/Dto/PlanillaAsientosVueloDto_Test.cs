@@ -2,14 +2,11 @@
 using Aerolinea.Vuelos.Application.Dto;
 using Xunit;
 
-namespace Aerolinea.Vuelos.Test.Application.Dto
-{
-    public class PlanillaAsientosVueloDto_Test
-    {
+namespace Aerolinea.Vuelos.Test.Application.Dto {
+    public class PlanillaAsientosVueloDto_Test {
 
         [Fact]
-        public void RequestVueloDto_CheckPropertiesValid()
-        {
+        public void RequestVueloDto_CheckPropertiesValid() {
             Guid codPlanillaAsiento = Guid.NewGuid();
             string asiento = "ASI10";
             string estado = "A";

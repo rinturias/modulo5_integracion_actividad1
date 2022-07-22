@@ -2,13 +2,10 @@
 using Aerolinea.Vuelos.Application.UseCases.Command.Vuelos;
 using Xunit;
 
-namespace Aerolinea.Vuelos.Test.Application.UseCases.Command.Vuelos
-{
-    public class CrearVueloHandler_Test
-    {
+namespace Aerolinea.Vuelos.Test.Application.UseCases.Command.Vuelos {
+    public class CrearVueloHandler_Test {
         [Fact]
-        public void IsRequest_Valid()
-        {
+        public void IsRequest_Valid() {
             var detalle = MockFactory.GetVuelo();
             var command = new CrearVuelosCommand(detalle);
 
@@ -17,8 +14,7 @@ namespace Aerolinea.Vuelos.Test.Application.UseCases.Command.Vuelos
         }
 
         [Fact]
-        public void TestConstructor_IsPrivate()
-        {
+        public void TestConstructor_IsPrivate() {
 
             var command = (CrearVuelosCommand)Activator.CreateInstance(typeof(CrearVuelosCommand), true);
 

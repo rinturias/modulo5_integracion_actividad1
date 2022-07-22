@@ -2,14 +2,11 @@
 using Aerolinea.Vuelos.Application.Dto;
 using Xunit;
 
-namespace Aerolinea.Vuelos.Test.Application.Dto
-{
-    public class SearchVuelosDTO_Test
-    {
+namespace Aerolinea.Vuelos.Test.Application.Dto {
+    public class SearchVuelosDTO_Test {
 
         [Fact]
-        public void TripulacionDto_CheckPropertiesValid()
-        {
+        public void TripulacionDto_CheckPropertiesValid() {
             Guid CodVuelo = Guid.NewGuid();
             DateTime FecInicial = new DateTime();
             DateTime FecFinal = new DateTime();

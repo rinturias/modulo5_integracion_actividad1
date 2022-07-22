@@ -2,12 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Aerolinea.Vuelos.Infrastructure.EF.Config.ReadConfig
-{
-    public class PlanillaAsientoVueloReadConfig : IEntityTypeConfiguration<PlanillaAsientoVueloReadModel>
-    {
-        public void Configure(EntityTypeBuilder<PlanillaAsientoVueloReadModel> builder)
-        {
+namespace Aerolinea.Vuelos.Infrastructure.EF.Config.ReadConfig {
+    public class PlanillaAsientoVueloReadConfig : IEntityTypeConfiguration<PlanillaAsientoVueloReadModel> {
+        public void Configure(EntityTypeBuilder<PlanillaAsientoVueloReadModel> builder) {
             builder.ToTable("PlanillaAsientoVuelo");
             builder.HasKey(x => x.Id);
 

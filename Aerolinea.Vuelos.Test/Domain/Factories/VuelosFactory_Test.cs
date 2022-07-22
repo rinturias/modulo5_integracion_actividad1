@@ -2,13 +2,10 @@
 using Aerolinea.Vuelos.Domain.Factories;
 using Xunit;
 
-namespace Aerolinea.Vuelos.Test.Domain.Factories
-{
-    public class VuelosFactory_Test
-    {
+namespace Aerolinea.Vuelos.Test.Domain.Factories {
+    public class VuelosFactory_Test {
         [Fact]
-        public void Create_Correctly()
-        {
+        public void Create_Correctly() {
             DateTime horaSalida = DateTime.Now;
             DateTime horaLLegada = DateTime.Now;
             string estado = "A";

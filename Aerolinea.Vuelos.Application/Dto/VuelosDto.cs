@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Aerolinea.Vuelos.Application.Dto
-{
+namespace Aerolinea.Vuelos.Application.Dto {
     [ExcludeFromCodeCoverage]
-    public class VuelosDto
-    {
+    public class VuelosDto {
         public Guid codVuelo { get; set; }
         public DateTime horaSalida { get; set; }
         public DateTime horaLLegada { get; set; }

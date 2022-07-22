@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using Aerolinea.Vuelos.Application.Dto;
 using Xunit;
 
-namespace Aerolinea.Vuelos.Test.Application.Dto
-{
-    public class RequestVueloDto_Test
-    {
+namespace Aerolinea.Vuelos.Test.Application.Dto {
+    public class RequestVueloDto_Test {
         [Fact]
-        public void RequestVueloDto_CheckPropertiesValid()
-        {
+        public void RequestVueloDto_CheckPropertiesValid() {
             DateTime horaSalidaTest = new DateTime();
             DateTime horaLLegadaTest = new DateTime();
             var estadoTest = "A";
@@ -68,8 +65,7 @@ namespace Aerolinea.Vuelos.Test.Application.Dto
 
         }
 
-        private List<TripulacionDto> getDetalleTripulacion()
-        {
+        private List<TripulacionDto> getDetalleTripulacion() {
             return new List<TripulacionDto>()
             {
                 new()

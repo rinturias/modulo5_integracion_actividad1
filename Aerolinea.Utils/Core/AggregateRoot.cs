@@ -1,8 +1,6 @@
-﻿namespace Sharedkernel.Core
-{
+﻿namespace Sharedkernel.Core {
 
-    public abstract class AggregateRoot<TId> : Entity<TId>
-    {
+    public abstract class AggregateRoot<TId> : Entity<TId> {
 
     }
 

@@ -2,13 +2,10 @@
 using Aerolinea.Vuelos.Application.Dto;
 using Xunit;
 
-namespace Aerolinea.Vuelos.Test.Application.Dto
-{
-    public class TripulacionDto_Test
-    {
+namespace Aerolinea.Vuelos.Test.Application.Dto {
+    public class TripulacionDto_Test {
         [Fact]
-        public void TripulacionDto_CheckPropertiesValid()
-        {
+        public void TripulacionDto_CheckPropertiesValid() {
             var codVueloTest = Guid.NewGuid();
             var codTripulacionTest = Guid.NewGuid();
             var codEmpleadoTest = Guid.NewGuid();

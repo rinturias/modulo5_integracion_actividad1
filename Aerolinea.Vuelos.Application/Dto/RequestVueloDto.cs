@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Aerolinea.Vuelos.Application.Dto
-{
-    public class RequestVueloDto
-    {
+namespace Aerolinea.Vuelos.Application.Dto {
+    public class RequestVueloDto {
         public DateTime horaSalida { get; set; }
         public DateTime horaLLegada { get; set; }
         public string estado { get; set; }

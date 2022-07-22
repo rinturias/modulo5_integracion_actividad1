@@ -1,9 +1,7 @@
 ﻿using System;
 
-namespace Aerolinea.Vuelos.Infrastructure.EF.ReadModel
-{
-    public class TripulacionVueloReadModel
-    {
+namespace Aerolinea.Vuelos.Infrastructure.EF.ReadModel {
+    public class TripulacionVueloReadModel {
         public Guid Id { get; set; }
         //  public Guid codVuelo { get; private set; }
         public Guid codTripulacion { get; set; }

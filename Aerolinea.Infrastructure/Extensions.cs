@@ -9,14 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Aerolinea.Vuelos.Infrastructure
-{
+namespace Aerolinea.Vuelos.Infrastructure {
 
-    public static class Extensions
-    {
+    public static class Extensions {
 
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
-        {
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration) {
 
             services.AddMediatR(Assembly.GetExecutingAssembly());
 

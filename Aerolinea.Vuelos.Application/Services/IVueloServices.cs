@@ -1,6 +1,4 @@
-﻿namespace Aerolinea.Vuelos.Application.Services
-{
-    public interface IVueloServices
-    {
+﻿namespace Aerolinea.Vuelos.Application.Services {
+    public interface IVueloServices {
     }
 }

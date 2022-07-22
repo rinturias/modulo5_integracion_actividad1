@@ -4,21 +4,17 @@ using Aerolinea.Vuelos.Infrastructure.EF.Config.WriteConfig;
 using Microsoft.EntityFrameworkCore;
 using Sharedkernel.Core;
 
-namespace Aerolinea.Vuelos.Infrastructure.EF.Contexts
-{
-    public class WriteDbContext : DbContext
-    {
+namespace Aerolinea.Vuelos.Infrastructure.EF.Contexts {
+    public class WriteDbContext : DbContext {
         public virtual DbSet<Vuelo> vuelo { get; set; }
         public virtual DbSet<TripulacionVuelo> tripulacionVuelo { get; set; }
 
         public virtual DbSet<PlanillaAsientoVuelo> planillaAsientoVuelo { get; set; }
 
-        public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options)
-        {
+        public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options) {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder);
 
             var vueloConfig = new VueloWriteConfig();

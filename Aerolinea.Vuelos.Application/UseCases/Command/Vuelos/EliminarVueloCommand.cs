@@ -1,14 +1,11 @@
 ﻿using Aerolinea.Vuelos.Application.Dto;
 using MediatR;
 
-namespace Aerolinea.Vuelos.Application.UseCases.Command.Vuelos
-{
-    public class EliminarVueloCommand : IRequest<ResulService>
-    {
+namespace Aerolinea.Vuelos.Application.UseCases.Command.Vuelos {
+    public class EliminarVueloCommand : IRequest<ResulService> {
         private EliminarVueloCommand() { }
 
-        public EliminarVueloCommand(VueloDeleteDto detalle)
-        {
+        public EliminarVueloCommand(VueloDeleteDto detalle) {
             Detalle = detalle;
         }
 

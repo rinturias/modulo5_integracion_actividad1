@@ -7,36 +7,29 @@ using Aerolinea.Vuelos.Domain.Entities;
 using Aerolinea.Vuelos.Domain.Interfaces;
 using MediatR;
 
-namespace Aerolinea.Vuelos.Application.UseCases.Command.Vuelos
-{
-    public class EliminarVueloHandler : IRequestHandler<EliminarVueloCommand, ResulService>
-    {
+namespace Aerolinea.Vuelos.Application.UseCases.Command.Vuelos {
+    public class EliminarVueloHandler : IRequestHandler<EliminarVueloCommand, ResulService> {
 
 
         public readonly IUnitOfWork _unitOfWork;
         public readonly IVueloRepository _vueloRepository;
-        public EliminarVueloHandler(IUnitOfWork unitOfWork, IVueloRepository vueloRepository)
-        {
+        public EliminarVueloHandler(IUnitOfWork unitOfWork, IVueloRepository vueloRepository) {
             _unitOfWork = unitOfWork;
             _vueloRepository = vueloRepository;
         }
 
-        public async Task<ResulService> Handle(EliminarVueloCommand request, CancellationToken cancellationToken)
-        {
+        public async Task<ResulService> Handle(EliminarVueloCommand request, CancellationToken cancellationToken) {
 
-            try
-            {
+            try {
                 int codMarcaBaja = 9;
                 Vuelo objVuelo = await _vueloRepository.FindByIdAsync(request.Detalle.codVuelo);
 
-                if (objVuelo != null)
-                {
+                if (objVuelo != null) {
 
                     objVuelo.EliminarVuelo(objVuelo.Id, codMarcaBaja);
                     await _vueloRepository.UpdateAsync(objVuelo);
                 }
-                else
-                {
+                else {
                     return new ResulService { codError = "COD403", messaje = "No existe el vuelo" };
                 }
 
@@ -45,8 +38,7 @@ namespace Aerolinea.Vuelos.Application.UseCases.Command.Vuelos
 
                 return new ResulService { data = objVuelo.Id, messaje = "se elimino el vuelo" };
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Console.WriteLine(ex.ToString());
 
             }

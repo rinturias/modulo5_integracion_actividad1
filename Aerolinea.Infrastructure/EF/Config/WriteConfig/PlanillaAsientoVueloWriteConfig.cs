@@ -2,12 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Aerolinea.Vuelos.Infrastructure.EF.Config.WriteConfig
-{
-    public class PlanillaAsientoVueloWriteConfig : IEntityTypeConfiguration<PlanillaAsientoVuelo>
-    {
-        public void Configure(EntityTypeBuilder<PlanillaAsientoVuelo> builder)
-        {
+namespace Aerolinea.Vuelos.Infrastructure.EF.Config.WriteConfig {
+    public class PlanillaAsientoVueloWriteConfig : IEntityTypeConfiguration<PlanillaAsientoVuelo> {
+        public void Configure(EntityTypeBuilder<PlanillaAsientoVuelo> builder) {
             builder.ToTable("PlanillaAsientoVuelo");
             builder.HasKey(x => x.Id);
 
