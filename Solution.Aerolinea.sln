@@ -15,11 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aerolinea.Vuelos.Api", "Aer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aerolinea.Vuelos.Test", "Aerolinea.Vuelos.Test\Aerolinea.Vuelos.Test.csproj", "{E1614791-E5F4-44BF-BFE4-473F44E51A5B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{69272C0C-C095-4E3C-9D48-7BE0F97D8948}"
-	ProjectSection(SolutionItems) = preProject
-		RuleSet1.ruleset = RuleSet1.ruleset
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0167140E-AE30-4A1C-968A-B2975D865BEA}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig

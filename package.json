@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/rinturias/modulo5_integracion_actividad1/issues"
   },
-  "homepage": "https://github.com/rinturias/modulo5_integracion_actividad1#readme"
+  "homepage": "https://github.com/rinturias/modulo5_integracion_actividad1#readme",
+  "devDependencies": {
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3"
+  },
+  "lint-staged":{
+    "*.cs": "dotnet-format --include"
+  }
 }
